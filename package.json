@@ -1,12 +1,37 @@
 {
-  "name": "@oh_noes/eon",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "@tobper/eon",
+	"version": "0.0.1",
+	"description": "Date library",
+	"repository": "github:tobper/eon",
+	"license": "ISC",
+	"keywords": [
+		"typescript",
+		"calendar",
+		"date"
+	],
+	"author": "Tobias Persson",
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/types/index.d.ts",
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "tsc",
+		"spelling": "cspell -c .vscode/cSpell.json --no-progress **",
+		"test": "vitest",
+		"lint": "eslint .",
+		"lint:fix": "pnpm -r run lint:fix",
+		"preinstall": "npx only-allow pnpm"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.9.0",
+		"@types/eslint": "^9.6.0",
+		"@types/eslint__js": "^8.42.3",
+		"cspell": "^8.13.3",
+		"eslint": "^9.8.0",
+		"typescript": "^5.5.4",
+		"typescript-eslint": "^8.1.0",
+		"vitest": "^2.0.5"
+	}
 }

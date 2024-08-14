@@ -1,0 +1,18 @@
+{
+	"version": "0.2",
+	"language": "en",
+	"ignorePaths": [
+		"pnpm-lock.yaml",
+		"dist/"
+	],
+	"words": [
+		"tobper"
+	],
+	"overrides": [
+		{
+			"filename": "package.json",
+			"words": [ "persson", "preinstall" ]
+		}
+	],
+	"enabled": true
+}

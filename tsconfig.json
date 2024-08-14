@@ -1,0 +1,35 @@
+{
+	/* https://aka.ms/tsconfig */
+	"compilerOptions": {
+		/* Modules */
+		"module": "esnext",
+		"moduleResolution": "bundler",
+
+		/* Language and Environment */
+		"target": "esnext",
+
+		/* Interop Constraints */
+		"forceConsistentCasingInFileNames": true,
+		"isolatedModules": true,
+		"verbatimModuleSyntax": true,
+
+		/* Emit */
+		"outDir": "./dist",
+		"sourceMap": true,
+		"declaration": true,
+		"declarationDir": "./dist/types",
+		"declarationMap": true,
+
+		/* Type Checking */
+		"strict": true,
+
+		/* Projects */
+		"incremental": true,
+	},
+	"include": [
+		"src/**/*.ts"
+	],
+	"exclude": [
+		"**/*.spec.ts"
+	]
+}
