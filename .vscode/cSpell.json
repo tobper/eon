@@ -11,7 +11,11 @@
 	"overrides": [
 		{
 			"filename": "package.json",
-			"words": [ "persson", "preinstall" ]
+			"words": [ "persson", "preinstall", "tsbuildinfo" ]
+		},
+		{
+			"filename": "LICENSE",
+			"words": [ "persson" ]
 		}
 	],
 	"enabled": true

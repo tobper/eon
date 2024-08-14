@@ -1,4 +1,4 @@
-import type { IntervalLike } from './interval';
+import type { IntervalLike } from './interval.js';
 
 export function format_interval(
 	{ amount, unit }: IntervalLike

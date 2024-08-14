@@ -1,4 +1,4 @@
-import type { CalendarMonthLike } from './calendar';
+import type { CalendarMonthLike } from './calendar.js';
 
 export function is_same_calendar_month(
 	date_1: CalendarMonthLike,

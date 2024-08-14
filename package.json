@@ -14,8 +14,13 @@
 	"main": "dist/index.js",
 	"types": "dist/types/index.d.ts",
 	"files": [
-		"dist"
+		"dist",
+		"!**/*.tsbuildinfo"
 	],
+	"packageManager": "pnpm@9.7.0",
+	"publishConfig": {
+		"@tobper:registry": "https://npm.pkg.github.com"
+	},
 	"scripts": {
 		"build": "tsc",
 		"spelling": "cspell -c .vscode/cSpell.json --no-progress **",

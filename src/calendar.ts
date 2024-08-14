@@ -1,9 +1,9 @@
-import { add_days } from './add_days';
-import { add_months } from './add_months';
-import { create_date_only } from './date_only';
-import { get_days_between } from './get_days_between';
-import { get_weekday } from './get_weekday';
-import { is_same_calendar_month } from './is_same_calendar_month';
+import { add_days } from './add_days.js';
+import { add_months } from './add_months.js';
+import { create_date_only } from './date_only.js';
+import { get_days_between } from './get_days_between.js';
+import { get_weekday } from './get_weekday.js';
+import { is_same_calendar_month } from './is_same_calendar_month.js';
 
 const locale = 'en';
 

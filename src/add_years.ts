@@ -1,5 +1,5 @@
-import { create_calendar_month_from_date, type CalendarMonth, type CalendarMonthLike } from './calendar';
-import { create_date_only_from_date, type DateOnly, type DateOnlyLike } from './date_only';
+import { create_calendar_month_from_date, type CalendarMonth, type CalendarMonthLike } from './calendar.js';
+import { create_date_only_from_date, type DateOnly, type DateOnlyLike } from './date_only.js';
 
 export function add_years(
 	original_date: DateOnlyLike,

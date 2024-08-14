@@ -1,4 +1,4 @@
-import { create_date_only_from_date, type DateOnly, type DateOnlyLike } from './date_only';
+import { create_date_only_from_date, type DateOnly, type DateOnlyLike } from './date_only.js';
 
 export function add_days(
 	original_date: DateOnlyLike,
