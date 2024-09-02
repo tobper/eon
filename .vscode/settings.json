@@ -3,7 +3,7 @@
 		"**/.git": true,
 		"**/.DS_Store": true,
 		"**/Thumbs.db": true,
-		"dist/": true
+		"lib/": true
 	},
 	"editor.codeActionsOnSave": {
 		"source.fixAll": "always",

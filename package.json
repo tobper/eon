@@ -1,6 +1,6 @@
 {
 	"name": "@tobper/eon",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Date library",
 	"repository": "github:tobper/eon",
 	"license": "ISC",
@@ -11,10 +11,11 @@
 	],
 	"author": "Tobias Persson",
 	"type": "module",
-	"main": "dist/index.js",
-	"types": "dist/types/index.d.ts",
+	"main": "lib/index.js",
+	"types": "lib/types/index.d.ts",
 	"files": [
-		"dist",
+		"lib",
+		"src",
 		"!**/*.tsbuildinfo"
 	],
 	"packageManager": "pnpm@9.7.0",

@@ -7,7 +7,7 @@ export default ts_eslint.config(
 	...ts_eslint.configs.strict,
 	...ts_eslint.configs.stylistic,
 	{
-		ignores: ['dist/**'],
+		ignores: ['lib/**'],
 	},
 	{
 		rules: {

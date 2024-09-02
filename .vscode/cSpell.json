@@ -3,7 +3,7 @@
 	"language": "en",
 	"ignorePaths": [
 		"pnpm-lock.yaml",
-		"dist/"
+		"lib/"
 	],
 	"words": [
 		"tobper"
