@@ -1,6 +1,6 @@
 {
 	"name": "@tobper/eon",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "Date library",
 	"repository": "github:tobper/eon",
 	"license": "ISC",
@@ -24,6 +24,7 @@
 	},
 	"scripts": {
 		"build": "tsc",
+		"watch": "tsc --watch",
 		"spelling": "cspell -c .vscode/cSpell.json --no-progress **",
 		"test": "vitest",
 		"lint": "eslint .",

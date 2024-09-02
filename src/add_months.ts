@@ -2,6 +2,8 @@ import type { CalendarMonth, CalendarMonthLike } from './create_calendar_month.j
 import { create_calendar_month_from_date } from './create_calendar_month_from_date.js';
 import type { DateOnly, DateOnlyLike } from './create_date_only.js';
 import { create_date_only_from_date } from './create_date_only_from_date.js';
+import { type Period, type PeriodLike } from './create_period.js';
+import { create_period_from_date } from './create_period_from_date.js';
 
 export function add_months(
 	original_date: DateOnlyLike,
@@ -14,9 +16,20 @@ export function add_months(
 ): CalendarMonth;
 
 export function add_months(
-	original_date: CalendarMonthLike | DateOnlyLike,
+	original_period: PeriodLike,
+	months: number
+): Period;
+
+export function add_months(
+	original_date: CalendarMonthLike | DateOnlyLike | PeriodLike,
 	months: number
 ) {
+	if ('first_day' in original_date) {
+		const new_date = get_new_date(original_date.first_day, months);
+
+		return create_period_from_date(new_date);
+	}
+
 	if ('day' in original_date) {
 		const new_date = get_new_date(original_date, months);
 

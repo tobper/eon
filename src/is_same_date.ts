@@ -1,8 +1,6 @@
-import type { DateOnlyLike } from './create_date_only';
-
 export function is_same_date(
-	date_1: DateOnlyLike,
-	date_2: DateOnlyLike
+	date_1: { year: number, month: number, day: number; },
+	date_2: { year: number, month: number, day: number; }
 ): boolean {
 	return (
 		date_1.day === date_2.day &&
