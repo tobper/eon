@@ -2,8 +2,9 @@ import { add_days } from './add_days.js';
 import { add_months } from './add_months.js';
 import { add_weeks } from './add_weeks.js';
 import { add_years } from './add_years.js';
-import type { DateOnly, DateOnlyLike } from './date_only.js';
-import { parse_interval, type IntervalLike } from './interval.js';
+import type { DateOnly, DateOnlyLike } from './create_date_only.js';
+import type { IntervalLike } from './create_interval.js';
+import { parse_interval } from './parse_interval.js';
 
 export function add_interval(
 	original_date: DateOnlyLike,

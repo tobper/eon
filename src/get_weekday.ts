@@ -1,4 +1,4 @@
-import type { DateOnlyLike } from './date_only.js';
+import type { DateOnlyLike } from './create_date_only';
 
 export function get_weekday(
 	{ year, month, day }: DateOnlyLike
