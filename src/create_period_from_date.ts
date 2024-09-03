@@ -1,4 +1,4 @@
-import { create_period, type Period } from './create_period';
+import { create_period, type Period } from './create_period.js';
 
 export function create_period_from_date(date: Date): Period;
 export function create_period_from_date(date: Date | null): Period | null;

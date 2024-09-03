@@ -1,4 +1,4 @@
-import { is_valid_month } from './is_valid_month';
+import { is_valid_month } from './is_valid_month.js';
 
 export function try_parse_month(text: null): null;
 export function try_parse_month(text: undefined): undefined;

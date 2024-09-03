@@ -1,4 +1,4 @@
-import { create_date_only, type DateOnly } from './create_date_only';
+import { create_date_only, type DateOnly } from './create_date_only.js';
 
 export function try_parse_date_only(text: string): DateOnly | null {
 	const match = text.match(parse_pattern);

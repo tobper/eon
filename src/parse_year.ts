@@ -1,4 +1,4 @@
-import { try_parse_year } from './try_parse_year';
+import { try_parse_year } from './try_parse_year.js';
 
 export function parse_year(text: string): number {
 	const year = try_parse_year(text);

@@ -1,4 +1,4 @@
-import type { CalendarMonthArgs } from '../create_calendar_month';
+import type { CalendarMonthArgs } from '../create_calendar_month.js';
 
 export function extract_calendar_args(...args: CalendarMonthArgs) {
 	const [year, month] = args.length === 1

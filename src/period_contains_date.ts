@@ -1,5 +1,5 @@
-import type { DateOnlyLike } from './create_date_only';
-import type { PeriodLike } from './create_period';
+import type { DateOnlyLike } from './create_date_only.js';
+import type { PeriodLike } from './create_period.js';
 
 export function period_contains_date(period: PeriodLike, date: DateOnlyLike): boolean {
 	return (

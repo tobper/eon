@@ -1,4 +1,4 @@
-import { format_interval } from './format_interval';
+import { format_interval } from './format_interval.js';
 
 export type IntervalUnit = 'y' | 'm' | 'w' | 'd';
 

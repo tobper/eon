@@ -1,4 +1,4 @@
-import { create_interval, interval_unit, type Interval, type IntervalUnit } from './create_interval';
+import { create_interval, interval_unit, type Interval, type IntervalUnit } from './create_interval.js';
 
 export function try_parse_interval(text: string): Interval | null {
 	if (!text)

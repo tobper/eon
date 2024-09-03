@@ -1,5 +1,5 @@
-import type { Interval } from './create_interval';
-import { try_parse_interval } from './try_parse_interval';
+import type { Interval } from './create_interval.js';
+import { try_parse_interval } from './try_parse_interval.js';
 
 export function parse_interval(text: string): Interval {
 	const interval = try_parse_interval(text);

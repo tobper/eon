@@ -1,4 +1,4 @@
-import { create_date_only, type DateOnly } from './create_date_only';
+import { create_date_only, type DateOnly } from './create_date_only.js';
 
 export function create_date_only_from_value(value: number): DateOnly;
 export function create_date_only_from_value(value: number | null): DateOnly | null;

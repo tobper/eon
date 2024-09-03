@@ -1,6 +1,6 @@
-import { add_months } from './add_months';
-import type { DateOnlyLike } from './create_date_only';
-import { create_period } from './create_period';
+import { add_months } from './add_months.js';
+import type { DateOnlyLike } from './create_date_only.js';
+import { create_period } from './create_period.js';
 
 export function get_period_for_date(date: DateOnlyLike, period_start_day = 1) {
 	if (date.day < period_start_day) {

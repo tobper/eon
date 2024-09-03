@@ -2,7 +2,7 @@ import type { CalendarMonth, CalendarMonthLike } from './create_calendar_month.j
 import { create_calendar_month_from_date } from './create_calendar_month_from_date.js';
 import type { DateOnly, DateOnlyLike } from './create_date_only.js';
 import { create_date_only_from_date } from './create_date_only_from_date.js';
-import { type Period, type PeriodLike } from './create_period.js';
+import type { Period, PeriodLike } from './create_period.js';
 import { create_period_from_date } from './create_period_from_date.js';
 
 export function add_months(

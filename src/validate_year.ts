@@ -1,4 +1,4 @@
-import { is_valid_year } from './is_valid_year';
+import { is_valid_year } from './is_valid_year.js';
 
 export function validate_year(year: unknown): number {
 	if (!is_valid_year(year))

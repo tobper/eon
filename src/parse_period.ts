@@ -1,5 +1,5 @@
-import type { Period } from './create_period';
-import { try_parse_period } from './try_parse_period';
+import type { Period } from './create_period.js';
+import { try_parse_period } from './try_parse_period.js';
 
 export function parse_period(text: string): Period {
 	const period = try_parse_period(text);

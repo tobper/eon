@@ -1,6 +1,6 @@
-import { add_days } from './add_days';
-import { add_months } from './add_months';
-import { create_date_only, type DateOnly, type DateOnlyLike } from './create_date_only';
+import { add_days } from './add_days.js';
+import { add_months } from './add_months.js';
+import { create_date_only, type DateOnly, type DateOnlyLike } from './create_date_only.js';
 
 export interface Period {
 	first_day: DateOnly;

@@ -1,4 +1,4 @@
-import { try_parse_month } from './try_parse_month';
+import { try_parse_month } from './try_parse_month.js';
 
 export function parse_month(text: string): number {
 	const month = try_parse_month(text);
