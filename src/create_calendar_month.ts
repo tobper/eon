@@ -1,4 +1,4 @@
-import { extract_calendar_args } from './internal';
+import { extract_calendar_args } from './internal/extract_calendar_args.js';
 
 export interface CalendarMonth {
 	year: number;
