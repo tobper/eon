@@ -1,8 +1,8 @@
-import type { DateOnlyLike } from './create_date_only.js';
+import type { DateOnly } from './create_date_only.js';
 
-export function get_weekday(
-	{ year, month, day }: DateOnlyLike
-) {
+export function get_weekday(date: DateOnly) {
+	const { year, month, day } = date;
+
 	// UTC day starts with index 0 on sunday
 	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/getUTCDay
 	const utc_day = new Date(Date.UTC(year, month - 1, day)).getUTCDay();

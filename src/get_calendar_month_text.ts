@@ -1,4 +1,5 @@
-import type { PeriodLike } from './create_period.js';
+import type { CalendarMonth } from './create_calendar_month.js';
+import type { Period } from './create_period.js';
 
 const locale = 'en';
 // const short_format_options: Intl.DateTimeFormatOptions = {
@@ -9,7 +10,27 @@ const long_format_options: Intl.DateTimeFormatOptions = {
 	month: 'long',
 };
 
-export function get_calendar_month_text(period: PeriodLike): string {
+export function get_calendar_month_text(
+	period: Period
+): string;
+
+export function get_calendar_month_text(
+	calendar_month: CalendarMonth
+): string;
+
+export function get_calendar_month_text(
+	arg: Period | CalendarMonth
+): string {
+	if ('year' in arg) {
+		const calendar_month = arg;
+		const { year, month } = calendar_month;
+		const month_text = format_long(month);
+
+		return `${month_text} ${year}`;
+	}
+
+	const period = arg;
+
 	if (period.first_day.day === 1) {
 		const { year, month } = period.first_day;
 		const month_text = format_long(month);

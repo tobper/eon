@@ -11,10 +11,12 @@ export default ts_eslint.config(
 	},
 	{
 		rules: {
-			quotes: ['error', 'single', {
+			'quotes': ['error', 'single', {
 				'allowTemplateLiterals': true
 			}],
-			semi: 'error',
+			'semi': 'error',
+			/* Do not suggest to merge signatures with different types since argument name is lost */
+			'@typescript-eslint/unified-signatures': 'off',
 		}
 	}
 );

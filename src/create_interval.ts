@@ -1,15 +1,8 @@
-import { format_interval } from './format_interval.js';
+import { get_interval_key } from './get_interval_key';
 
 export type IntervalUnit = 'y' | 'm' | 'w' | 'd';
 
 export interface Interval {
-	amount: number;
-	unit: IntervalUnit;
-	key: string;
-	text: string;
-}
-
-export interface IntervalLike {
 	amount: number;
 	unit: IntervalUnit;
 }
@@ -24,8 +17,17 @@ export const interval_unit = Object.freeze({
 const interval_units = Object.values(interval_unit);
 
 export function create_interval(
+	interval: Interval
+): Interval;
+
+export function create_interval(
+	amount: number,
+	unit: IntervalUnit
+): Interval;
+
+export function create_interval(
 	...args:
-		| [interval: IntervalLike]
+		| [interval: Interval]
 		| [amount: number, unit: IntervalUnit]
 ): Interval {
 	const [amount, unit] = args.length === 1
@@ -41,14 +43,11 @@ export function create_interval(
 	if (!interval_units.includes(unit))
 		throw new Error(`Invalid unit: ${unit}`);
 
-	const key = `${amount}${unit}`;
-	const text = format_interval({ amount, unit });
-
 	return Object.freeze({
 		amount,
 		unit,
-		key,
-		text,
-		valueOf() { return key; }
+		valueOf() {
+			return get_interval_key({ amount, unit });
+		}
 	});
 }

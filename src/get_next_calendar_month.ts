@@ -1,8 +1,7 @@
-import { create_calendar_month, type CalendarMonth, type CalendarMonthArgs } from './create_calendar_month.js';
-import { extract_calendar_args } from './internal/extract_calendar_args.js';
+import { create_calendar_month, type CalendarMonth } from './create_calendar_month.js';
 
-export function get_next_calendar_month(...args: CalendarMonthArgs): CalendarMonth {
-	const { year, month } = extract_calendar_args(...args);
+export function get_next_calendar_month(calendar_month: CalendarMonth): CalendarMonth {
+	const { year, month } = calendar_month;
 
 	return month === 12
 		? create_calendar_month(year + 1, 1)

@@ -1,7 +1,7 @@
 import { add_days } from './add_days.js';
 import { add_months } from './add_months.js';
 import type { DateOnly } from './create_date_only.js';
-import type { PeriodLike } from './create_period.js';
+import type { Period } from './create_period.js';
 import { get_days_between } from './get_days_between.js';
 import { get_weekday } from './get_weekday.js';
 import { period_contains_date } from './period_contains_date.js';
@@ -11,7 +11,7 @@ export interface CalendarDate extends DateOnly {
 	weekend: boolean;
 }
 
-export function get_calendar_dates(period: PeriodLike): CalendarDate[] {
+export function get_calendar_dates(period: Period): CalendarDate[] {
 	const { first_day, last_day } = period;
 	const previous_month_days_visible = get_weekday(first_day) - 1;
 	const next_month_days_visible = 7 - get_weekday(last_day);

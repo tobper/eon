@@ -1,7 +1,7 @@
-import type { IntervalLike } from './create_interval.js';
+import type { Interval } from './create_interval.js';
 
-export function format_interval(
-	{ amount, unit }: IntervalLike
+export function get_interval_text(
+	{ amount, unit }: Interval
 ) {
 	if (amount === 1) {
 		const values = { y: 'Yearly', m: 'Monthly', w: 'Weekly', d: 'Daily' };

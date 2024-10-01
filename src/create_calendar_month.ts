@@ -1,34 +1,31 @@
-import { extract_calendar_args } from './internal/extract_calendar_args.js';
 
 export interface CalendarMonth {
 	year: number;
 	month: number;
-	key: string;
 }
-
-export interface CalendarMonthLike {
-	year: number;
-	month: number;
-}
-
-export type CalendarMonthArgs =
-	| [date: CalendarMonthLike]
-	| [year: number, month: number];
 
 export function create_calendar_month(
-	...args: CalendarMonthArgs
+	date: CalendarMonth
+): CalendarMonth;
+
+export function create_calendar_month(
+	year: number,
+	month: number
+): CalendarMonth;
+
+export function create_calendar_month(
+	...args:
+		| [date: CalendarMonth]
+		| [year: number, month: number]
 ): CalendarMonth {
-	const { year, month } = extract_calendar_args(...args);
-	const key = `${year}-${pad_number(month)}`;
+	const [year, month] = args.length === 1
+		? [args[0].year, args[0].month]
+		: args;
 
-	return Object.freeze({
-		year,
-		month,
-		key,
-		valueOf() { return key; },
-	});
-}
+	return Object.freeze({ year, month, valueOf });
 
-function pad_number(value: number) {
-	return value.toString().padStart(2, '0');
+	function valueOf() {
+		/* Make value  comparable to date only value */
+		return year * 10000 + month * 100;
+	}
 }

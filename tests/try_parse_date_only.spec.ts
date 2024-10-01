@@ -16,7 +16,6 @@ describe('try_parse_date_only()', () => {
 			year: 2023,
 			month: 2,
 			day: 5,
-			key: '2023-02-05',
 		});
 	});
 
@@ -25,7 +24,6 @@ describe('try_parse_date_only()', () => {
 			year: 2023,
 			month: 2,
 			day: 5,
-			key: '2023-02-05',
 		});
 	});
 });

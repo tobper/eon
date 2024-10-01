@@ -15,29 +15,6 @@ describe('create_interval()', () => {
 		expect(create_interval({ amount: 4, unit: year })).toMatchObject({ amount: 4, unit: year });
 	});
 
-	describe('return value contains text representation', () => {
-		test.each([
-			[1, year, 'Yearly'],
-			[2, year, 'Every other year'],
-			[3, year, 'Every 3 years'],
-
-			[1, month, 'Monthly'],
-			[2, month, 'Every other month'],
-			[3, month, 'Quarterly'],
-			[4, month, 'Every 4 months'],
-
-			[1, week, 'Weekly'],
-			[2, week, 'Every other week'],
-			[3, week, 'Every 3 weeks'],
-
-			[1, day, 'Daily'],
-			[2, day, 'Every other day'],
-			[3, day, 'Every 3 days'],
-		])(`returns %s '%s' as '%s'`, (amount, unit, text) => {
-			expect(create_interval(amount, unit).text).toBe(text);
-		});
-	});
-
 	test('throws when amount is invalid', () => {
 		expect(() => create_interval(0, year)).toThrow(`Amount can't be less than 1`);
 		expect(() => create_interval(-1, year)).toThrow(`Amount can't be less than 1`);

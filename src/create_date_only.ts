@@ -1,19 +1,24 @@
-export interface DateOnly {
-	year: number;
-	month: number;
-	day: number;
-	key: string;
-}
+import { get_date_only_key } from './get_date_only_key';
 
-export interface DateOnlyLike {
+export interface DateOnly {
 	year: number;
 	month: number;
 	day: number;
 }
 
 export function create_date_only(
+	date: DateOnly
+): DateOnly;
+
+export function create_date_only(
+	year: number,
+	month: number,
+	day: number
+): DateOnly;
+
+export function create_date_only(
 	...args:
-		| [date: DateOnlyLike]
+		| [date: DateOnly]
 		| [year: number, month: number, day: number]
 ): DateOnly {
 	const [year, month, day] = args.length === 1
@@ -27,18 +32,11 @@ export function create_date_only(
 		date.getDate() !== day;
 
 	if (invalid_date)
-		throw new Error(`'${year}-${month}-${day}' is not a valid date`);
+		throw new Error(`'${get_date_only_key({ year, month, day })}' is not a valid date`);
 
-	const key = `${year}-${pad_number(month)}-${pad_number(day)}`;
+	return Object.freeze({ year, month, day, valueOf });
 
-	return Object.freeze({
-		year,
-		month,
-		day,
-		key,
-		valueOf() { return key; }
-	});
-}
-function pad_number(value: number) {
-	return value.toString().padStart(2, '0');
+	function valueOf() {
+		return year * 10000 + month * 100 + day;
+	}
 }

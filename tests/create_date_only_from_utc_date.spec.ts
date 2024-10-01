@@ -10,7 +10,6 @@ describe('create_date_only_from_utc_date()', () => {
 			year: 2023,
 			month: 2,
 			day: 5,
-			key: '2023-02-05',
 		});
 	});
 

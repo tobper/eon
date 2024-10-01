@@ -6,7 +6,6 @@ describe('create_calendar_month()', () => {
 		expect(create_calendar_month({ year: 2023, month: 2 })).toMatchObject({
 			year: 2023,
 			month: 2,
-			key: '2023-02',
 		});
 	});
 

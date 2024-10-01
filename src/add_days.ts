@@ -1,8 +1,8 @@
-import type { DateOnly, DateOnlyLike } from './create_date_only.js';
+import type { DateOnly } from './create_date_only.js';
 import { create_date_only_from_date } from './create_date_only_from_date.js';
 
 export function add_days(
-	original_date: DateOnlyLike,
+	original_date: DateOnly,
 	days: number
 ): DateOnly {
 	const { year, month, day } = original_date;
