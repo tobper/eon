@@ -18,6 +18,14 @@ describe('parse_date_only()', () => {
 		});
 	});
 
+	test('treats non padded day and month as valid', () => {
+		expect(parse_date_only('2023-2-5')).toMatchObject({
+			year: 2023,
+			month: 2,
+			day: 5,
+		});
+	});
+
 	test('returns DateOnly when argument begins with a date', () => {
 		expect(parse_date_only('2023-02-05T12:13:14.234Z')).toMatchObject({
 			year: 2023,
