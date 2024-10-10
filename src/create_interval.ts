@@ -1,4 +1,3 @@
-import { get_interval_key } from './get_interval_key';
 
 export type IntervalUnit = 'y' | 'm' | 'w' | 'd';
 
@@ -43,11 +42,5 @@ export function create_interval(
 	if (!interval_units.includes(unit))
 		throw new Error(`Invalid unit: ${unit}`);
 
-	return Object.freeze({
-		amount,
-		unit,
-		valueOf() {
-			return get_interval_key({ amount, unit });
-		}
-	});
+	return Object.freeze({ amount, unit });
 }

@@ -13,12 +13,4 @@ describe('create_period()', () => {
 			last_day: { year: 2023, month: 3, day: 2 },
 		});
 	});
-
-	test('returned period can be compared using less and larger than', () => {
-		expect(create_period(2023, 2, 5) < create_period(2023, 2, 6)).toBeTruthy();
-		expect(create_period(2023, 2, 5) > create_period(2023, 2, 4)).toBeTruthy();
-
-		expect(create_period(2023, 2) < create_period(2023, 3)).toBeTruthy();
-		expect(create_period(2023, 2) > create_period(2023, 1)).toBeTruthy();
-	});
 });

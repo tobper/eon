@@ -22,10 +22,5 @@ export function create_calendar_month(
 		? [args[0].year, args[0].month]
 		: args;
 
-	return Object.freeze({ year, month, valueOf });
-
-	function valueOf() {
-		/* Make value  comparable to date only value */
-		return year * 10000 + month * 100;
-	}
+	return Object.freeze({ year, month });
 }

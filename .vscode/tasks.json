@@ -1,0 +1,41 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build",
+			"dependsOn": [
+				"Package",
+				"Lint",
+				"Spelling"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "Test",
+			"type": "npm",
+			"script": "test",
+			"group": {
+				"kind": "test",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "Package",
+			"type": "npm",
+			"script": "build"
+		},
+		{
+			"label": "Lint",
+			"type": "npm",
+			"script": "lint"
+		},
+		{
+			"label": "Spelling",
+			"type": "npm",
+			"script": "spelling"
+		},
+	]
+}

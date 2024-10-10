@@ -34,9 +34,5 @@ export function create_date_only(
 	if (invalid_date)
 		throw new Error(`'${get_date_only_key({ year, month, day })}' is not a valid date`);
 
-	return Object.freeze({ year, month, day, valueOf });
-
-	function valueOf() {
-		return year * 10000 + month * 100 + day;
-	}
+	return Object.freeze({ year, month, day });
 }

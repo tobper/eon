@@ -33,11 +33,5 @@ export function create_period(
 	const first_day = create_date_only(start_year, start_month, start_day);
 	const last_day = add_days(add_months(first_day, 1), -1);
 
-	return Object.freeze({
-		first_day,
-		last_day,
-		valueOf() {
-			return first_day.valueOf();
-		}
-	});
+	return Object.freeze({ first_day, last_day });
 }

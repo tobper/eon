@@ -8,9 +8,4 @@ describe('create_calendar_month()', () => {
 			month: 2,
 		});
 	});
-
-	test('returned date can be compared using less and larger than', () => {
-		expect(create_calendar_month(2023, 1) < create_calendar_month(2023, 2)).toBeTruthy();
-		expect(create_calendar_month(2023, 2) > create_calendar_month(2023, 1)).toBeTruthy();
-	});
 });
