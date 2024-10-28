@@ -1,4 +1,4 @@
-import type { DateOnly } from './create_date_only';
+import type { DateOnly } from './create_date_only.js';
 
 export function sort_dates(dates: DateOnly[]) {
 	return dates.toSorted((x, y) => {

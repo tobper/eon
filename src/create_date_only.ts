@@ -1,4 +1,4 @@
-import { get_date_only_key } from './get_date_only_key';
+import { get_date_only_key } from './get_date_only_key.js';
 
 export interface DateOnly {
 	year: number;
