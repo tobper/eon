@@ -1,5 +1,5 @@
-import { get_next_calendar_month } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { get_next_calendar_month } from '../src/get_next_calendar_month';
 
 describe('get_next_calendar_month()', () => {
 	test.each([

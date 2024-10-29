@@ -1,5 +1,6 @@
-import { create_date_only, sort_dates } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { create_date_only } from '../src/create_date_only';
+import { sort_dates } from '../src/sort_dates';
 
 describe('sort_dates()', () => {
 	test('returns empty array when provided with no dates', () => {

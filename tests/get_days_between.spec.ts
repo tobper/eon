@@ -1,5 +1,5 @@
-import { get_days_between } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { get_days_between } from '../src/get_days_between';
 
 describe('get_days_between()', () => {
 	test.each([

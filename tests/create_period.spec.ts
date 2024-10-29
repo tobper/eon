@@ -1,5 +1,5 @@
-import { create_period } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { create_period } from '../src/create_period';
 
 describe('create_period()', () => {
 	test('returns a new period', () => {

@@ -1,5 +1,5 @@
-import { add_weeks } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { add_weeks } from '../src/add_weeks';
 
 describe('add_weeks()', () => {
 	test.each([

@@ -1,5 +1,5 @@
-import { is_same_date } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { is_same_date } from '../src/is_same_date';
 
 describe('is_same_date()', () => {
 	test.each([

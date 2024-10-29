@@ -1,5 +1,5 @@
-import { get_period_for_date } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { get_period_for_date } from '../src/get_period_for_date';
 
 describe('get_period_for_date()', () => {
 	test('returns period for date', () => {

@@ -1,5 +1,5 @@
-import { create_date_only_from_utc_date } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { create_date_only_from_utc_date } from '../src/create_date_only_from_utc_date';
 
 describe('create_date_only_from_utc_date()', () => {
 	test.each([

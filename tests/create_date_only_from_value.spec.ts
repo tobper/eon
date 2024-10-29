@@ -1,5 +1,5 @@
-import { create_date_only_from_value } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { create_date_only_from_value } from '../src/create_date_only_from_value';
 
 describe('create_date_only_from_value()', () => {
 	test('returns DateOnly based on a number', () => {

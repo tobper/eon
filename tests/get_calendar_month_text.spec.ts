@@ -1,5 +1,5 @@
-import { create_period } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { create_period } from '../src/create_period';
 import { get_calendar_month_text } from '../src/get_calendar_month_text';
 
 describe('get_calendar_month_text()', () => {

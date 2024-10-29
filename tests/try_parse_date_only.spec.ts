@@ -1,6 +1,5 @@
-
-import { try_parse_date_only } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { try_parse_date_only } from '../src/try_parse_date_only';
 
 describe('try_parse_date_only()', () => {
 	test('returns null when argument is empty', () => {

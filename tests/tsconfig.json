@@ -1,10 +1,5 @@
 {
 	"extends": "../tsconfig.json",
-	"compilerOptions": {
-		"paths": {
-			"@tobper/eon": [ "../src" ]
-		}
-	},
 	"include": [ "../src", "." ],
 	"exclude": [ ]
 }

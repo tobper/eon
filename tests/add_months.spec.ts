@@ -1,5 +1,5 @@
-import { add_months } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { add_months } from '../src/add_months';
 
 describe('add_months()', () => {
 	test.each([

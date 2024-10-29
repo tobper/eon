@@ -1,5 +1,5 @@
-import { add_years } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { add_years } from '../src/add_years';
 
 describe('add_years()', () => {
 	test.each([

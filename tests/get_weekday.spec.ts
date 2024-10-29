@@ -1,5 +1,5 @@
-import { get_weekday } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { get_weekday } from '../src/get_weekday';
 
 describe('get_weekday()', () => {
 	test('week starts on monday', () => {

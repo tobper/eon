@@ -1,5 +1,6 @@
-import { create_period, period_contains_date } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { create_period } from '../src/create_period';
+import { period_contains_date } from '../src/period_contains_date';
 
 describe('period_contains_date()', () => {
 	test('returns true when date is contained in period', () => {

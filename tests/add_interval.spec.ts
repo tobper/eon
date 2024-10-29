@@ -1,5 +1,6 @@
-import { add_interval, interval_unit } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { add_interval } from '../src/add_interval';
+import { interval_unit } from '../src/create_interval';
 
 const { year, month, day } = interval_unit;
 

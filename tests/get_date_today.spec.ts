@@ -1,5 +1,5 @@
-import { get_date_today } from '@tobper/eon';
 import { describe, expect, test } from 'vitest';
+import { get_date_today } from '../src/get_date_today';
 
 describe('get_date_today()', () => {
 	test('returns current date', () => {
