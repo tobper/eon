@@ -19,6 +19,7 @@ export * from './get_current_month.js';
 export * from './get_current_period.js';
 export * from './get_current_year.js';
 export * from './get_date_only_key.js';
+export * from './get_date_only_text.js';
 export * from './get_date_only_value.js';
 export * from './get_date_today.js';
 export * from './get_days_between.js';
