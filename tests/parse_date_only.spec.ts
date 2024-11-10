@@ -24,18 +24,12 @@ describe('parse_date_only()', () => {
 		});
 	});
 
-	test('treats non padded day and month as valid', () => {
-		expect(parse_date_only('2023-1-15')).toMatchObject({
-			year: 2023,
-			month: 1,
-			day: 15,
-		});
+	test('requires month to be specified with 2 digits', () => {
+		expect(() => parse_date_only('2023-01-1')).toThrow(`'2023-01-1' is not a valid date`);
+	});
 
-		expect(parse_date_only('2023-2-5')).toMatchObject({
-			year: 2023,
-			month: 2,
-			day: 5,
-		});
+	test('requires day to be specified with 2 digits', () => {
+		expect(() => parse_date_only('2023-1-15')).toThrow(`'2023-1-15' is not a valid date`);
 	});
 
 	test('returns DateOnly when argument begins with a date', () => {
@@ -45,7 +39,7 @@ describe('parse_date_only()', () => {
 			day: 5,
 		});
 
-		expect(parse_date_only('2023-2-5 lorem ipsum')).toMatchObject({
+		expect(parse_date_only('2023-02-05 lorem ipsum')).toMatchObject({
 			year: 2023,
 			month: 2,
 			day: 5,

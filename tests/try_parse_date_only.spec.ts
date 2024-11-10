@@ -8,6 +8,7 @@ describe('try_parse_date_only()', () => {
 
 	test('returns null when argument is invalid', () => {
 		expect(try_parse_date_only('foo')).toBeNull();
+		expect(try_parse_date_only('2024-1-1')).toBeNull();
 	});
 
 	test('returns DateOnly when argument is valid', () => {
