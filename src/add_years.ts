@@ -1,9 +1,7 @@
-import type { CalendarMonth } from './create_calendar_month.js';
-import { create_calendar_month_from_date } from './create_calendar_month_from_date.js';
+import { create_calendar_month, type CalendarMonth } from './create_calendar_month.js';
 import type { DateOnly } from './create_date_only.js';
 import { create_date_only_from_date } from './create_date_only_from_date.js';
-import type { Period } from './create_period.js';
-import { create_period_from_date } from './create_period_from_date.js';
+import { create_period, type Period } from './create_period.js';
 
 export function add_years(
 	original_date: DateOnly,
@@ -23,30 +21,37 @@ export function add_years(
 export function add_years(
 	original_date: CalendarMonth | DateOnly | Period,
 	years: number
-) {
-	if ('first_day' in original_date) {
-		const new_date = get_new_date(original_date.first_day, years);
+): CalendarMonth | DateOnly | Period;
 
-		return create_period_from_date(new_date);
+export function add_years(
+	original: CalendarMonth | DateOnly | Period,
+	years: number
+): CalendarMonth | DateOnly | Period {
+	if ('day' in original) {
+		const new_date = add_years_to_date(original, years);
+
+		return new_date;
 	}
 
-	if ('day' in original_date) {
-		const new_date = get_new_date(original_date, years);
+	if ('first_day' in original) {
+		const new_start_date = add_years_to_date(original.first_day, years);
+		const new_period = create_period(new_start_date, original.length);
 
-		return create_date_only_from_date(new_date);
+		return new_period;
 	}
 
-	const { year, month } = original_date;
-	const new_date = get_new_date({ year, month, day: 1 }, years);
+	const { year, month } = original;
+	const new_start_date = add_years_to_date({ year, month, day: 1 }, years);
+	const new_calendar_month = create_calendar_month(new_start_date);
 
-	return create_calendar_month_from_date(new_date);
+	return new_calendar_month;
 }
 
-function get_new_date(old_date: DateOnly, years: number) {
-	const { year, month, day } = old_date;
+function add_years_to_date(original: DateOnly, years: number) {
+	const { year, month, day } = original;
 	const new_date = new Date(Date.UTC(year, month - 1, day));
 
 	new_date.setUTCFullYear(new_date.getUTCFullYear() + years);
 
-	return new_date;
+	return create_date_only_from_date(new_date);
 }

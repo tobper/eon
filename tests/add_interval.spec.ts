@@ -1,15 +1,38 @@
 import { describe, expect, test } from 'vitest';
+import { create_date_only, create_period } from '../src';
 import { add_interval } from '../src/add_interval';
-import { interval_unit } from '../src/create_interval';
-
-const { year, month, day } = interval_unit;
+import { create_interval } from '../src/create_interval';
 
 describe('add_interval()', () => {
 	test.each([
-		[{ year: 2023, month: 1, day: 5 }, { amount: 1, unit: year }, { year: 2024, month: 1, day: 5 }],
-		[{ year: 2023, month: 1, day: 5 }, { amount: 2, unit: month }, { year: 2023, month: 3, day: 5 }],
-		[{ year: 2023, month: 1, day: 5 }, { amount: 3, unit: day }, { year: 2023, month: 1, day: 8 }],
-	])('returns new date with added interval', (original, interval, expected) => {
-		expect(add_interval(original, interval)).toMatchObject(expected);
+		{
+			interval_to_add: create_interval(1, 'y'),
+			original: create_date_only(2023, 1, 5),
+			expected: create_date_only(2024, 1, 5)
+		},
+		{
+			interval_to_add: create_interval(2, 'm'),
+			original: create_date_only(2023, 1, 5),
+			expected: create_date_only(2023, 3, 5)
+		},
+		{
+			interval_to_add: create_interval(3, 'w'),
+			original: create_date_only(2023, 1, 5),
+			expected: create_date_only(2023, 1, 26)
+		},
+		{
+			interval_to_add: create_interval(4, 'd'),
+			original: create_date_only(2023, 1, 5),
+			expected: create_date_only(2023, 1, 9)
+		},
+	])('returns new date with added interval', ({ original, interval_to_add, expected }) => {
+		expect(add_interval(original, interval_to_add)).toMatchObject(expected);
+	});
+
+	test('returns new period with same length', () => {
+		const original = create_period(2023, 1, 1, '2w');
+		const result = add_interval(original, { amount: 1, unit: 'm' });
+
+		expect(result).toMatchObject(create_period(2023, 2, 1, '2w'));
 	});
 });

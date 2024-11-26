@@ -1,28 +1,72 @@
 import { describe, expect, test } from 'vitest';
+import { create_calendar_month, create_date_only, create_period } from '../src';
 import { add_months } from '../src/add_months';
 
 describe('add_months()', () => {
 	test.each([
-		[{ year: 2023, month: 1, day: 5 }, 1, { year: 2023, month: 2, day: 5 }],
-		[{ year: 2023, month: 1, day: 5 }, -1, { year: 2022, month: 12, day: 5 }],
-		[{ year: 2023, month: 1, day: 5 }, -5, { year: 2022, month: 8, day: 5 }],
-	])('returns new date with added months', (original, months, expected) => {
-		expect(add_months(original, months)).toMatchObject(expected);
+		{
+			months_to_add: 1,
+			original: create_date_only(2023, 1, 5),
+			expected: create_date_only(2023, 2, 5)
+		},
+		{
+			months_to_add: -1,
+			original: create_date_only(2023, 1, 5),
+			expected: create_date_only(2022, 12, 5)
+		},
+		{
+			months_to_add: -5,
+			original: create_date_only(2023, 1, 5),
+			expected: create_date_only(2022, 8, 5)
+		},
+	])('returns new date with added months', ({ original, months_to_add, expected }) => {
+		expect(add_months(original, months_to_add)).toMatchObject(expected);
 	});
 
 	test.each([
-		[{ year: 2023, month: 1 }, 1, { year: 2023, month: 2 }],
-		[{ year: 2023, month: 1 }, -1, { year: 2022, month: 12 }],
-		[{ year: 2023, month: 1 }, -5, { year: 2022, month: 8 }],
-	])('returns new calendar month with added months', (original, months, expected) => {
-		expect(add_months(original, months)).toMatchObject(expected);
+		{
+			months_to_add: 1,
+			original: create_calendar_month(2023, 1),
+			expected: create_calendar_month(2023, 2)
+		},
+		{
+			months_to_add: -1,
+			original: create_calendar_month(2023, 1),
+			expected: create_calendar_month(2022, 12)
+		},
+		{
+			months_to_add: -5,
+			original: create_calendar_month(2023, 1),
+			expected: create_calendar_month(2022, 8)
+		},
+	])('returns new calendar month with added months', ({ original, months_to_add, expected }) => {
+		expect(add_months(original, months_to_add)).toMatchObject(expected);
 	});
 
 	test.each([
-		[{ first_day: { year: 2023, month: 1, day: 1 } }, 1, { first_day: { year: 2023, month: 2, day: 1 } }],
-		[{ first_day: { year: 2023, month: 1, day: 2 } }, -1, { first_day: { year: 2022, month: 12, day: 2 } }],
-		[{ first_day: { year: 2023, month: 1, day: 3 } }, -5, { first_day: { year: 2022, month: 8, day: 3 } }],
-	])('returns new period with added months', (original, months, expected) => {
-		expect(add_months(original, months)).toMatchObject(expected);
+		{
+			months_to_add: 1,
+			original: create_period(2023, 1, 1),
+			expected: create_period(2023, 2, 1)
+		},
+		{
+			months_to_add: -1,
+			original: create_period(2023, 1, 2),
+			expected: create_period(2022, 12, 2)
+		},
+		{
+			months_to_add: -5,
+			original: create_period(2023, 1, 3),
+			expected: create_period(2022, 8, 3)
+		},
+	])('returns new period with added months', ({ original, months_to_add, expected }) => {
+		expect(add_months(original, months_to_add)).toMatchObject(expected);
+	});
+
+	test('returns new period with same length', () => {
+		const original = create_period(2023, 1, 1, '2w');
+		const result = add_months(original, 1);
+
+		expect(result).toMatchObject(create_period(2023, 2, 1, '2w'));
 	});
 });
