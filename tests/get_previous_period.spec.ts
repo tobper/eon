@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { create_period } from '../src';
+import { create_period } from '../src/create_period';
 import { get_previous_period } from '../src/get_previous_period';
 
 describe('get_previous_period()', () => {
