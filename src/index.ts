@@ -30,6 +30,7 @@ export * from './get_months_between.js';
 export * from './get_next_calendar_month.js';
 export * from './get_next_period.js';
 export * from './get_period_for_date.js';
+export * from './get_period_key.js';
 export * from './get_period_text.js';
 export * from './get_previous_calendar_month.js';
 export * from './get_previous_period.js';
