@@ -3,14 +3,35 @@ import { create_period } from '../src/create_period';
 import { get_calendar_month_text } from '../src/get_calendar_month_text';
 
 describe('get_calendar_month_text()', () => {
-	test('returns calendar month as text', () => {
-		expect(get_calendar_month_text({ year: 2023, month: 1 })).toEqual('January 2023');
-		expect(get_calendar_month_text({ year: 2023, month: 2 })).toEqual('February 2023');
+	const current_year = new Date().getFullYear();
+	const previous_year = current_year - 1;
+	const next_year = current_year + 1;
+	const format = {
+		short: 'short' as const,
+		long: 'long' as const,
+	};
+
+	test.each([
+		[{ year: current_year, month: 1 }, format.short, 'Jan'],
+		[{ year: current_year, month: 1 }, format.long, 'January'],
+		[{ year: current_year, month: 2 }, format.short, 'Feb'],
+		[{ year: current_year, month: 2 }, format.long, 'February'],
+		[{ year: previous_year, month: 1 }, format.short, `Jan ${previous_year}`],
+		[{ year: previous_year, month: 1 }, format.long, `January ${previous_year}`],
+		[{ year: previous_year, month: 2 }, format.short, `Feb ${previous_year}`],
+		[{ year: previous_year, month: 2 }, format.long, `February ${previous_year}`],
+	])('returns text, for a calendar_month, including year when it is same as current year', (month, format, expected_text) => {
+		expect(get_calendar_month_text(month, format)).toBe(expected_text);
 	});
 
-	test('returns calendar month as text', () => {
-		expect(get_calendar_month_text(create_period(2023, 1))).toEqual('January 2023');
-		expect(get_calendar_month_text(create_period(2023, 1, 25))).toEqual('January - February 2023');
-		expect(get_calendar_month_text(create_period(2022, 12, 25))).toEqual('December 2022 - January 2023');
+	test.each([
+		[create_period(current_year, 1), `January`],
+		[create_period(previous_year, 1), `January ${previous_year}`],
+		[create_period(current_year, 1, 2), `January - February`],
+		[create_period(previous_year, 12, 2), `December ${previous_year} - January`],
+		[create_period(current_year, 12, 2), `December - January ${next_year}`],
+		[create_period(next_year, 12, 2), `December ${next_year} - January ${next_year + 1}`],
+	])('returns text, for a period, including year when it is not same as current year', (period, expected_text) => {
+		expect(get_calendar_month_text(period)).toEqual(expected_text);
 	});
 });
