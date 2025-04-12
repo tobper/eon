@@ -8,5 +8,5 @@ export function get_period_key(
 	const date_key = get_date_only_key(period.first_day);
 	const interval_key = get_interval_key(period.length);
 
-	return `${date_key}:${interval_key}`;
+	return `${date_key}-${interval_key}`;
 }
