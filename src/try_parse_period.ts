@@ -3,18 +3,21 @@ import { try_parse_date_only } from './try_parse_date_only.js';
 import { try_parse_interval } from './try_parse_interval.js';
 
 export function try_parse_period(text: string): Period | null {
-	if (text.length !== 13)
+	if (text.length < 13)
 		return null;
 
-	const period_parts = text.split(':');
-	if (period_parts.length !== 2)
+	const separator_index = text.lastIndexOf('-');
+	if (separator_index === -1)
 		return null;
 
-	const start_date = try_parse_date_only(period_parts[0]);
+	const date_part = text.substring(0, separator_index);
+	const interval_part = text.substring(separator_index + 1);
+
+	const start_date = try_parse_date_only(date_part);
 	if (!start_date)
 		return null;
 
-	const interval = try_parse_interval(period_parts[1]);
+	const interval = try_parse_interval(interval_part);
 	if (!interval)
 		return null;
 
