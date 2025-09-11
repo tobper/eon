@@ -5,9 +5,9 @@ import { create_interval, type Interval } from './create_interval.js';
 import { parse_interval } from './parse_interval.js';
 
 export interface Period {
-	first_day: DateOnly;
-	last_day: DateOnly;
-	length: Interval;
+	readonly first_day: DateOnly;
+	readonly last_day: DateOnly;
+	readonly length: Interval;
 }
 
 export function create_period(

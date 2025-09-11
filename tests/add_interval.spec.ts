@@ -28,6 +28,7 @@ describe('add_interval()', () => {
 		},
 	])('returns new date with added interval', ({ original, interval_to_add, expected }) => {
 		expect(add_interval(original, interval_to_add)).toMatchObject(expected);
+		expect(add_interval(interval_to_add)(original)).toMatchObject(expected);
 	});
 
 	test('returns new period with same length', () => {

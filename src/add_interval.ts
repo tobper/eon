@@ -9,39 +9,54 @@ import type { Period } from './create_period.js';
 import { parse_interval } from './parse_interval.js';
 
 export function add_interval(
-	original_date: DateOnly,
+	interval: Interval | string
+): {
+	(original: DateOnly): DateOnly;
+	(original: CalendarMonth): CalendarMonth;
+	(original: Period): Period;
+	(original: CalendarMonth | DateOnly | Period): CalendarMonth | DateOnly | Period;
+};
+
+export function add_interval(
+	original: DateOnly,
 	interval: Interval | string
 ): DateOnly;
 
 export function add_interval(
-	original_month: CalendarMonth,
+	original: CalendarMonth,
 	interval: Interval | string
 ): CalendarMonth;
 
 export function add_interval(
-	original_period: Period,
+	original: Period,
 	interval: Interval | string
 ): Period;
 
 export function add_interval(
-	original_date: CalendarMonth | DateOnly | Period,
+	original: CalendarMonth | DateOnly | Period,
 	interval: Interval | string
 ): CalendarMonth | DateOnly | Period;
 
 export function add_interval(
-	original_date: CalendarMonth | DateOnly | Period,
-	interval: Interval | string
-): CalendarMonth | DateOnly | Period {
-	if (typeof interval === 'string')
-		interval = parse_interval(interval);
+	...args:
+		| [interval: Interval | string]
+		| [original: CalendarMonth | DateOnly | Period, interval: Interval | string]
+) {
+	if (args.length === 1)
+		return (original: CalendarMonth | DateOnly | Period) => add_interval(original, args[0]);
+
+	const [original, interval_value] = args;
+	const interval = typeof interval_value === 'string'
+		? parse_interval(interval_value)
+		: interval_value;
 
 	const { amount, unit } = interval;
 
 	switch (unit) {
-		case 'y': return add_years(original_date, amount);
-		case 'm': return add_months(original_date, amount);
-		case 'w': return add_weeks(original_date, amount);
-		case 'd': return add_days(original_date, amount);
+		case 'y': return add_years(original, amount);
+		case 'm': return add_months(original, amount);
+		case 'w': return add_weeks(original, amount);
+		case 'd': return add_days(original, amount);
 		default: throw new Error(`Invalid interval: '${unit}'`);
 	}
 }

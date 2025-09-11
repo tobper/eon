@@ -22,6 +22,7 @@ describe('get_calendar_month_text()', () => {
 		[{ year: previous_year, month: 2 }, format.long, `February ${previous_year}`],
 	])('returns text, for a calendar_month, including year when it is same as current year', (month, format, expected_text) => {
 		expect(get_calendar_month_text(month, format)).toBe(expected_text);
+		expect(get_calendar_month_text(format)(month)).toBe(expected_text);
 	});
 
 	test.each([

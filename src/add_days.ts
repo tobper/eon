@@ -4,17 +4,26 @@ import { create_date_only_from_date } from './create_date_only_from_date.js';
 import { create_period, type Period } from './create_period.js';
 
 export function add_days(
-	original_date: DateOnly,
+	months: number
+): {
+	(original: DateOnly): DateOnly;
+	(original: CalendarMonth): CalendarMonth;
+	(original: Period): Period;
+	(original: CalendarMonth | DateOnly | Period): CalendarMonth | DateOnly | Period;
+};
+
+export function add_days(
+	original: DateOnly,
 	days: number
 ): DateOnly;
 
 export function add_days(
-	original_month: CalendarMonth,
+	original: CalendarMonth,
 	days: number
 ): CalendarMonth;
 
 export function add_days(
-	original_period: Period,
+	original: Period,
 	days: number
 ): Period;
 
@@ -24,9 +33,15 @@ export function add_days(
 ): CalendarMonth | DateOnly | Period;
 
 export function add_days(
-	original: CalendarMonth | DateOnly | Period,
-	days: number
-): CalendarMonth | DateOnly | Period {
+	...args:
+		| [days: number]
+		| [original: CalendarMonth | DateOnly | Period, days: number]
+) {
+	if (args.length === 1)
+		return (original: CalendarMonth | DateOnly | Period) => add_days(original, args[0]);
+
+	const [original, days] = args;
+
 	if ('day' in original) {
 		const new_date = add_days_to_date(original, days);
 

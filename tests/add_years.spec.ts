@@ -23,6 +23,7 @@ describe('add_years()', () => {
 		},
 	])('returns new date with added years', ({ original, years_to_add, expected }) => {
 		expect(add_years(original, years_to_add)).toMatchObject(expected);
+		expect(add_years(years_to_add)(original)).toMatchObject(expected);
 	});
 
 	test.each([
@@ -43,6 +44,7 @@ describe('add_years()', () => {
 		},
 	])('returns new calendar month with added years', ({ original, years_to_add, expected }) => {
 		expect(add_years(original, years_to_add)).toMatchObject(expected);
+		expect(add_years(years_to_add)(original)).toMatchObject(expected);
 	});
 
 	test.each([
@@ -63,6 +65,7 @@ describe('add_years()', () => {
 		},
 	])('returns new period with added years', ({ original, years_to_add, expected }) => {
 		expect(add_years(original, years_to_add)).toMatchObject(expected);
+		expect(add_years(years_to_add)(original)).toMatchObject(expected);
 	});
 
 	test('returns new period with same length', () => {

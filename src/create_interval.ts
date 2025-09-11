@@ -2,8 +2,8 @@
 export type IntervalUnit = 'y' | 'm' | 'w' | 'd';
 
 export interface Interval {
-	amount: number;
-	unit: IntervalUnit;
+	readonly amount: number;
+	readonly unit: IntervalUnit;
 }
 
 export const interval_unit = Object.freeze({

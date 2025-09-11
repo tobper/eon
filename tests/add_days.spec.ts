@@ -23,6 +23,7 @@ describe('add_days()', () => {
 		},
 	])('returns new date with added days', ({ original, days_to_add, expected }) => {
 		expect(add_days(original, days_to_add)).toMatchObject(expected);
+		expect(add_days(days_to_add)(original)).toMatchObject(expected);
 	});
 
 	test.each([
@@ -48,6 +49,7 @@ describe('add_days()', () => {
 		},
 	])('returns new calendar month with added days', ({ original, days_to_add, expected }) => {
 		expect(add_days(original, days_to_add)).toMatchObject(expected);
+		expect(add_days(days_to_add)(original)).toMatchObject(expected);
 	});
 
 	test.each([
@@ -68,6 +70,7 @@ describe('add_days()', () => {
 		},
 	])('returns new period with added days', ({ original, days_to_add, expected }) => {
 		expect(add_days(original, days_to_add)).toMatchObject(expected);
+		expect(add_days(days_to_add)(original)).toMatchObject(expected);
 	});
 
 	test('returns new period with same length', () => {

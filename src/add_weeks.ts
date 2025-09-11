@@ -4,17 +4,26 @@ import type { DateOnly } from './create_date_only.js';
 import type { Period } from './create_period.js';
 
 export function add_weeks(
-	original_date: DateOnly,
+	weeks: number
+): {
+	(original: DateOnly): DateOnly;
+	(original: CalendarMonth): CalendarMonth;
+	(original: Period): Period;
+	(original: CalendarMonth | DateOnly | Period): CalendarMonth | DateOnly | Period;
+};
+
+export function add_weeks(
+	original: DateOnly,
 	weeks: number
 ): DateOnly;
 
 export function add_weeks(
-	original_month: CalendarMonth,
+	original: CalendarMonth,
 	weeks: number
 ): CalendarMonth;
 
 export function add_weeks(
-	original_period: Period,
+	original: Period,
 	weeks: number
 ): Period;
 
@@ -24,8 +33,14 @@ export function add_weeks(
 ): CalendarMonth | DateOnly | Period;
 
 export function add_weeks(
-	original: CalendarMonth | DateOnly | Period,
-	weeks: number
-): CalendarMonth | DateOnly | Period {
+	...args:
+		| [weeks: number]
+		| [original: CalendarMonth | DateOnly | Period, weeks: number]
+) {
+	if (args.length === 1)
+		return (original: CalendarMonth | DateOnly | Period) => add_weeks(original, args[0]);
+
+	const [original, weeks] = args;
+
 	return add_days(original, 7 * weeks);
 }

@@ -7,19 +7,23 @@ const short_format_options: Intl.DateTimeFormatOptions = { month: 'short' };
 const long_format_options: Intl.DateTimeFormatOptions = { month: 'long' };
 
 export function get_calendar_month_text(
-	period: Period,
+	format?: 'long' | 'short'
+): (month: CalendarMonth | Period) => string;
+
+export function get_calendar_month_text(
+	month: CalendarMonth | Period,
 	format?: 'long' | 'short'
 ): string;
 
 export function get_calendar_month_text(
-	calendar_month: CalendarMonth,
-	format?: 'long' | 'short'
-): string;
+	...args:
+		| [format?: 'long' | 'short']
+		| [arg: CalendarMonth | Period, format?: 'long' | 'short']
+) {
+	if (args.length === 0 || typeof args[0] !== 'object')
+		return (arg: CalendarMonth | Period) => get_calendar_month_text(arg, args[0]);
 
-export function get_calendar_month_text(
-	arg: Period | CalendarMonth,
-	format: 'long' | 'short' = 'long'
-): string {
+	const [arg, format = 'long'] = args;
 	const today = new Date();
 	const current_year = today.getFullYear();
 

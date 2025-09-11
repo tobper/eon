@@ -1,7 +1,7 @@
 
 export interface CalendarMonth {
-	year: number;
-	month: number;
+	readonly year: number;
+	readonly month: number;
 }
 
 export function create_calendar_month(
