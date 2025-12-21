@@ -17,10 +17,22 @@ describe('try_parse_date_only()', () => {
 			month: 2,
 			day: 5,
 		});
+
+		expect(try_parse_date_only('2023.02.05')).toMatchObject({
+			year: 2023,
+			month: 2,
+			day: 5,
+		});
 	});
 
 	test('returns DateOnly when argument begins with a date', () => {
 		expect(try_parse_date_only('2023-02-05T12:13:14.234Z')).toMatchObject({
+			year: 2023,
+			month: 2,
+			day: 5,
+		});
+
+		expect(try_parse_date_only('2023.02.05 [121314]')).toMatchObject({
 			year: 2023,
 			month: 2,
 			day: 5,

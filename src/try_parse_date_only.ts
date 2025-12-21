@@ -12,4 +12,4 @@ export function try_parse_date_only(text: string): DateOnly | null {
 	});
 }
 
-const parse_pattern = /^(19[789]\d|20\d{2})-(0[1-9]|1[012])-(0[1-9]|[12]\d|3[01])/;
+const parse_pattern = /^(19[789]\d|20\d{2})[.-](0[1-9]|1[012])[.-](0[1-9]|[12]\d|3[01])/;
