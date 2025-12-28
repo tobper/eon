@@ -1,15 +1,15 @@
 import type { CalendarMonth } from './create_calendar_month.js';
 import type { DateOnly } from './create_date_only.js';
 import type { Period } from './create_period.js';
-import { eon } from './eon.js';
+import { get_day_text } from './get_day_text.js';
+import { get_month_text } from './get_month_text.js';
 import { is_same_month } from './is_same_month.js';
 import { period_contains_date } from './period_contains_date.js';
 
-const plural = new Intl.PluralRules(eon.locale, { type: 'ordinal' });
-
 export function get_date_only_text(date: DateOnly, reference?: CalendarMonth | Period) {
-	const { year, month, day } = date;
-	const day_text = `${day}${eon.day_suffixes.get(plural.select(day))}`;
+	const { year } = date;
+	const day_text = get_day_text(date);
+	const month_text = get_month_text(date);
 
 	if (reference) {
 		if ('first_day' in reference) {
@@ -17,16 +17,16 @@ export function get_date_only_text(date: DateOnly, reference?: CalendarMonth | P
 				return day_text;
 
 			if (year === reference.first_day.year || year === reference.last_day.year)
-				return `${eon.months_short[month - 1]} ${day_text}`;
+				return `${month_text} ${day_text}`;
 		}
 		else {
 			if (is_same_month(date, reference))
 				return day_text;
 
 			if (year === reference.year)
-				return `${eon.months_short[month - 1]} ${day_text}`;
+				return `${month_text} ${day_text}`;
 		}
 	}
 
-	return `${eon.months_short[month - 1]} ${day_text}, ${year}`;
+	return `${month_text} ${day_text}, ${year}`;
 }

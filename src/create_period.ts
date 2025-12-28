@@ -2,6 +2,7 @@ import { add_days } from './add_days.js';
 import { add_interval } from './add_interval.js';
 import { create_date_only, type DateOnly } from './create_date_only.js';
 import { create_interval, type Interval } from './create_interval.js';
+import { get_days_between } from './get_days_between.js';
 import { parse_interval } from './parse_interval.js';
 
 export interface Period {
@@ -11,7 +12,20 @@ export interface Period {
 }
 
 export function create_period(
-	start_date: {
+	first_day: {
+		year: number;
+		month: number;
+		day?: number;
+	},
+	last_date: {
+		year: number;
+		month: number;
+		day?: number;
+	}
+): Period;
+
+export function create_period(
+	first_day: {
 		year: number;
 		month: number;
 		day?: number;
@@ -27,25 +41,61 @@ export function create_period(
 ): Period;
 
 export function create_period(
-	...args: ObjectArgs | NumberArgs
+	...args: ObjectArgs | ObjectsArgs | NumberArgs
 ): Period {
-	const [start_year, start_month, start_day = 1, length_arg = default_interval] =
-		is_object_args(args)
-			? [args[0].year, args[0].month, args[0].day, args[1]]
-			: args;
+	if (is_number_args(args)) {
+		const [year, month, day, length] = args;
+		return create_with_date_and_length({ year, month, day }, length);
+	}
 
+	if (is_date_and_length_args(args)) {
+		const [first_day, length] = args;
+		return create_with_date_and_length(first_day, length);
+	}
+
+	const [first_day, last_day] = args;
+	return create_with_dates(first_day, last_day);
+}
+
+const default_interval = create_interval(1, 'm');
+
+interface DateOnlySource { year: number; month: number; day?: number; }
+type IntervalSource = Interval | string;
+type ObjectArgs = [first_day: DateOnlySource, length?: IntervalSource];
+type ObjectsArgs = [first_day: DateOnlySource, last_day: DateOnlySource, length?: IntervalSource];
+type NumberArgs = [first_year: number, first_month: number, first_day?: number, length?: IntervalSource];
+
+function is_number_args(args: ObjectArgs | ObjectsArgs | NumberArgs): args is NumberArgs {
+	return typeof args[0] === 'number';
+}
+
+function is_date_and_length_args(args: ObjectArgs | ObjectsArgs): args is ObjectArgs {
+	return (
+		args[1] === undefined ||
+		typeof args[1] === 'string' ||
+		'amount' in args[1]
+	);
+}
+
+function create_with_date_and_length(
+	date: DateOnlySource,
+	length_arg: Interval | string = default_interval
+) {
 	const length = typeof length_arg === 'string' ? parse_interval(length_arg) : length_arg;
-	const first_day = create_date_only(start_year, start_month, start_day);
+	const first_day = create_date_only(date.year, date.month, date.day ?? 1);
 	const last_day = add_days(add_interval(first_day, length), -1);
 
 	return Object.freeze({ first_day, last_day, length });
 }
 
-const default_interval = create_interval(1, 'm');
+function create_with_dates(
+	first_day_source: DateOnlySource,
+	last_day_source: DateOnlySource,
+) {
+	const first_day = create_date_only(first_day_source.year, first_day_source.month, first_day_source.day ?? 1);
+	const last_day = create_date_only(last_day_source.year, last_day_source.month, last_day_source.day ?? 1);
+	const days = get_days_between(last_day, first_day) + 1;
+	const length = create_interval(days, 'd');
 
-type ObjectArgs = [start_date: { year: number; month: number; day?: number; }, length?: Interval | string];
-type NumberArgs = [start_year: number, start_month: number, start_day?: number, length?: Interval | string];
-
-function is_object_args(args: ObjectArgs | NumberArgs): args is ObjectArgs {
-	return typeof args[0] === 'object';
+	return Object.freeze({ first_day, last_day, length });
 }

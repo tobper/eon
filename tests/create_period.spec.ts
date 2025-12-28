@@ -2,7 +2,7 @@ import { describe, expect, test } from 'vitest';
 import { create_period } from '../src/create_period';
 
 describe('create_period()', () => {
-	test('returns a new period', () => {
+	test('returns a new period based on length', () => {
 		expect(create_period({ year: 2023, month: 1 })).toMatchObject({
 			first_day: { year: 2023, month: 1, day: 1 },
 			last_day: { year: 2023, month: 1, day: 31 },
@@ -14,10 +14,19 @@ describe('create_period()', () => {
 		});
 	});
 
+	test('returns a new period based on two dates', () => {
+		expect(create_period({ year: 2023, month: 1, day: 1 }, { year: 2023, month: 1, day: 2 })).toMatchObject({
+			first_day: { year: 2023, month: 1, day: 1 },
+			last_day: { year: 2023, month: 1, day: 2 },
+			length: { amount: 2, unit: 'd' }
+		});
+	});
+
 	test('returns a new period with custom length', () => {
 		expect(create_period({ year: 2023, month: 1, day: 1 }, { amount: 2, unit: 'd' })).toMatchObject({
 			first_day: { year: 2023, month: 1, day: 1 },
 			last_day: { year: 2023, month: 1, day: 2 },
+			length: { amount: 2, unit: 'd' }
 		});
 
 		expect(create_period({ year: 2023, month: 1, day: 1 }, { amount: 2, unit: 'w' })).toMatchObject({

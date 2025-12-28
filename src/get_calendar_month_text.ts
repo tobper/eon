@@ -1,6 +1,6 @@
 import type { CalendarMonth } from './create_calendar_month.js';
 import type { Period } from './create_period.js';
-import { eon } from './eon.js';
+import { get_month_text } from './get_month_text.js';
 import { is_same_month } from './is_same_month.js';
 
 export function get_calendar_month_text(
@@ -35,9 +35,7 @@ export function get_calendar_month_text(
 
 	function format_single_month(calendar_month: { year: number, month: number; }) {
 		const { year, month } = calendar_month;
-		const month_text = format === 'long'
-			? eon.months_long[month - 1]
-			: eon.months_short[month - 1];
+		const month_text = get_month_text(month, format);
 
 		return year !== current_year
 			? `${month_text} ${year}`
