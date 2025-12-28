@@ -1,10 +1,7 @@
 import type { CalendarMonth } from './create_calendar_month.js';
 import type { Period } from './create_period.js';
+import { eon } from './eon.js';
 import { is_same_month } from './is_same_month.js';
-
-const locale = 'en';
-const short_format_options: Intl.DateTimeFormatOptions = { month: 'short' };
-const long_format_options: Intl.DateTimeFormatOptions = { month: 'long' };
 
 export function get_calendar_month_text(
 	period: Period,
@@ -39,19 +36,11 @@ export function get_calendar_month_text(
 	function format_single_month(calendar_month: { year: number, month: number; }) {
 		const { year, month } = calendar_month;
 		const month_text = format === 'long'
-			? format_long(month)
-			: format_short(month);
+			? eon.months_long[month - 1]
+			: eon.months_short[month - 1];
 
 		return year !== current_year
 			? `${month_text} ${year}`
 			: month_text;
 	}
-}
-
-function format_long(month: number) {
-	return new Date(1, month - 1, 1).toLocaleDateString(locale, long_format_options);
-}
-
-function format_short(month: number) {
-	return new Date(1, month - 1, 1).toLocaleDateString(locale, short_format_options);
 }

@@ -1,7 +1,6 @@
 import type { Period } from './create_period.js';
+import { eon } from './eon.js';
 import { to_date } from './to_date.js';
-
-const locale = 'en';
 
 export function get_period_text(
 	period: Period
@@ -13,7 +12,7 @@ export function get_period_text(
 	if (period.first_day.day === 1 && period.length.amount === 1 && period.length.unit === 'm') {
 		// November 2023
 		return to_date(period.first_day)
-			.toLocaleDateString(locale, {
+			.toLocaleDateString(eon.locale, {
 				year: include_to_year ? 'numeric' : undefined,
 				month: 'long'
 			});
@@ -21,7 +20,7 @@ export function get_period_text(
 
 	// Nov 25 - Dec 24 2023
 	const from = to_date(period.first_day)
-		.toLocaleDateString(locale, {
+		.toLocaleDateString(eon.locale, {
 			year: include_from_year ? 'numeric' : undefined,
 			month: 'short',
 			day: 'numeric'
@@ -29,7 +28,7 @@ export function get_period_text(
 
 
 	const to = to_date(period.last_day)
-		.toLocaleDateString(locale, {
+		.toLocaleDateString(eon.locale, {
 			year: include_to_year ? 'numeric' : undefined,
 			month: 'short',
 			day: 'numeric'
