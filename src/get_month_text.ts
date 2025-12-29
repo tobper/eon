@@ -1,5 +1,5 @@
-import type { CalendarMonth } from './create_calendar_month';
-import { eon } from './eon';
+import type { CalendarMonth } from './create_calendar_month.js';
+import { eon } from './eon.js';
 
 export function get_month_text(
 	month: number,
