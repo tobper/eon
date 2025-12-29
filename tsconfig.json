@@ -2,11 +2,11 @@
 	/* https://aka.ms/tsconfig */
 	"compilerOptions": {
 		/* Modules */
-		"module": "esnext",
-		"moduleResolution": "bundler",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
 
 		/* Language and Environment */
-		"target": "esnext",
+		"target": "ESNext",
 
 		/* Interop Constraints */
 		"forceConsistentCasingInFileNames": true,
