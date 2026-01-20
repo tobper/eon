@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { get_period_for_date } from '../src/get_period_for_date';
+import { get_period_for_date } from '../src/get_period_for_date.js';
 
 describe('get_period_for_date()', () => {
 	test('returns period for date', () => {

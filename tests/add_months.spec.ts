@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'vitest';
-import { add_months } from '../src/add_months';
-import { create_calendar_month } from '../src/create_calendar_month';
-import { create_date_only } from '../src/create_date_only';
-import { create_period } from '../src/create_period';
+import { add_months } from '../src/add_months.js';
+import { create_calendar_month } from '../src/create_calendar_month.js';
+import { create_date_only } from '../src/create_date_only.js';
+import { create_period } from '../src/create_period.js';
 
 describe('add_months()', () => {
 	test.each([

@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { get_date_today } from '../src/get_date_today';
+import { get_date_today } from '../src/get_date_today.js';
 
 describe('get_date_today()', () => {
 	test('returns current date', () => {

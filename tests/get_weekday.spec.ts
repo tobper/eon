@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { get_weekday } from '../src/get_weekday';
+import { get_weekday } from '../src/get_weekday.js';
 
 describe('get_weekday()', () => {
 	test('week starts on monday', () => {

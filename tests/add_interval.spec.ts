@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'vitest';
-import { add_interval } from '../src/add_interval';
-import { create_date_only } from '../src/create_date_only';
-import { create_interval } from '../src/create_interval';
-import { create_period } from '../src/create_period';
+import { add_interval } from '../src/add_interval.js';
+import { create_date_only } from '../src/create_date_only.js';
+import { create_interval } from '../src/create_interval.js';
+import { create_period } from '../src/create_period.js';
 
 describe('add_interval()', () => {
 	test.each([

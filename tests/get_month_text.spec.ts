@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { create_calendar_month } from '../src/create_calendar_month';
-import { get_month_text } from '../src/get_month_text';
+import { create_calendar_month } from '../src/create_calendar_month.js';
+import { get_month_text } from '../src/get_month_text.js';
 
 describe('get_month_text()', () => {
 	test.each([

@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { interval_unit } from '../src/create_interval';
-import { get_interval_text } from '../src/get_interval_text';
+import { interval_unit } from '../src/create_interval.js';
+import { get_interval_text } from '../src/get_interval_text.js';
 
 const { day, week, month, year } = interval_unit;
 

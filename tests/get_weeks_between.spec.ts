@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { get_weeks_between } from '../src/get_weeks_between';
+import { get_weeks_between } from '../src/get_weeks_between.js';
 
 describe('get_weeks_between()', () => {
 	test.each([

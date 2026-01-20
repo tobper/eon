@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { create_interval, interval_unit, type IntervalUnit } from '../src/create_interval';
+import { create_interval, interval_unit, type IntervalUnit } from '../src/create_interval.js';
 
 const { day, week, month, year } = interval_unit;
 

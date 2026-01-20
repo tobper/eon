@@ -1,8 +1,8 @@
 import { describe, expect, test } from 'vitest';
-import { create_calendar_month } from '../src/create_calendar_month';
-import { create_period } from '../src/create_period';
-import { get_date_only_text } from '../src/get_date_only_text';
-import { parse_date_only } from '../src/parse_date_only';
+import { create_calendar_month } from '../src/create_calendar_month.js';
+import { create_period } from '../src/create_period.js';
+import { get_date_only_text } from '../src/get_date_only_text.js';
+import { parse_date_only } from '../src/parse_date_only.js';
 
 describe('get_date_only_text()', () => {
 	test.each([

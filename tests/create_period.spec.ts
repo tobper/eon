@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { create_period } from '../src/create_period';
+import { create_period } from '../src/create_period.js';
 
 describe('create_period()', () => {
 	test('returns a new period based on length', () => {

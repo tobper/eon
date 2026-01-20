@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { create_interval } from '../src/create_interval';
-import { is_same_interval } from '../src/is_same_interval';
+import { create_interval } from '../src/create_interval.js';
+import { is_same_interval } from '../src/is_same_interval.js';
 
 describe('is_same_interval()', () => {
 	test.each([

@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { get_interval_key } from '../src/get_interval_key';
+import { get_interval_key } from '../src/get_interval_key.js';
 
 describe('get_interval_key()', () => {
 	test('returns interval as a key', () => {

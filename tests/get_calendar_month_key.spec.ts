@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { get_calendar_month_key } from '../src/get_calendar_month_key';
+import { get_calendar_month_key } from '../src/get_calendar_month_key.js';
 
 describe('get_calendar_month_key()', () => {
 	test('returns calendar month as a key', () => {

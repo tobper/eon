@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { compare_dates } from '../src/compare_dates';
+import { compare_dates } from '../src/compare_dates.js';
 
 describe('compare_dates()', () => {
 	test('returns -1 when the first date is earlier than the second date', () => {

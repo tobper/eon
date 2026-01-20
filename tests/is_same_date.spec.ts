@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { is_same_date } from '../src/is_same_date';
+import { is_same_date } from '../src/is_same_date.js';
 
 describe('is_same_date()', () => {
 	test.each([

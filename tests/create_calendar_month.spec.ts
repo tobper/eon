@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { create_calendar_month } from '../src/create_calendar_month';
+import { create_calendar_month } from '../src/create_calendar_month.js';
 
 describe('create_calendar_month()', () => {
 	test('returns a new calendar month', () => {

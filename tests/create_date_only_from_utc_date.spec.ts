@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { create_date_only_from_utc_date } from '../src/create_date_only_from_utc_date';
+import { create_date_only_from_utc_date } from '../src/create_date_only_from_utc_date.js';
 
 describe('create_date_only_from_utc_date()', () => {
 	test.each([

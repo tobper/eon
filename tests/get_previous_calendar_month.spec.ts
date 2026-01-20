@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { get_previous_calendar_month } from '../src/get_previous_calendar_month';
+import { get_previous_calendar_month } from '../src/get_previous_calendar_month.js';
 
 describe('get_previous_calendar_month()', () => {
 	test.each([

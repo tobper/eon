@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { create_period } from '../src/create_period';
-import { get_period_text } from '../src/get_period_text';
+import { create_period } from '../src/create_period.js';
+import { get_period_text } from '../src/get_period_text.js';
 
 describe('get_period_text()', () => {
 	describe('When period is a month starting on the first', () => {

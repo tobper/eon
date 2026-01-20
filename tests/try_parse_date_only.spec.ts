@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { try_parse_date_only } from '../src/try_parse_date_only';
+import { try_parse_date_only } from '../src/try_parse_date_only.js';
 
 describe('try_parse_date_only()', () => {
 	test('returns null when argument is empty', () => {

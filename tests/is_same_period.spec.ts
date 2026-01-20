@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { create_period } from '../src/create_period';
-import { is_same_period } from '../src/is_same_period';
+import { create_period } from '../src/create_period.js';
+import { is_same_period } from '../src/is_same_period.js';
 
 describe('is_same_period()', () => {
 	test.each([

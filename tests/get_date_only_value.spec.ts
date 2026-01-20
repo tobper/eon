@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { get_date_only_value } from '../src/get_date_only_value';
+import { get_date_only_value } from '../src/get_date_only_value.js';
 
 describe('get_date_only_value()', () => {
 	test('returns date as a number', () => {

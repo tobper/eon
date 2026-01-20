@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { create_period } from '../src/create_period';
-import { period_contains_date } from '../src/period_contains_date';
+import { create_period } from '../src/create_period.js';
+import { period_contains_date } from '../src/period_contains_date.js';
 
 describe('period_contains_date()', () => {
 	test('returns true when date is contained in period', () => {

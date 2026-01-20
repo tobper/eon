@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { get_date_only_key } from '../src/get_date_only_key';
+import { get_date_only_key } from '../src/get_date_only_key.js';
 
 describe('get_date_only_key()', () => {
 	test('returns date as a key', () => {

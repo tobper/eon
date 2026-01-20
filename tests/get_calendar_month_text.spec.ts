@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { create_period } from '../src/create_period';
-import { get_calendar_month_text } from '../src/get_calendar_month_text';
+import { create_period } from '../src/create_period.js';
+import { get_calendar_month_text } from '../src/get_calendar_month_text.js';
 
 describe('get_calendar_month_text()', () => {
 	const current_year = new Date().getFullYear();

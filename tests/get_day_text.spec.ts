@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { get_day_text } from '../src/get_day_text';
+import { get_day_text } from '../src/get_day_text.js';
 
 describe('get_day_text()', () => {
 	test.each([

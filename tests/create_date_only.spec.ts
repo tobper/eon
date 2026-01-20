@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { create_date_only } from '../src/create_date_only';
+import { create_date_only } from '../src/create_date_only.js';
 
 describe('create_date_only()', () => {
 	test('returns a new date', () => {

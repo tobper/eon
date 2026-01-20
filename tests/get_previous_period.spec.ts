@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { create_period } from '../src/create_period';
-import { get_previous_period } from '../src/get_previous_period';
+import { create_period } from '../src/create_period.js';
+import { get_previous_period } from '../src/get_previous_period.js';
 
 describe('get_previous_period()', () => {
 	test.each([

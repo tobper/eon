@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
-import { create_date_only } from '../src/create_date_only';
-import { sort_dates } from '../src/sort_dates';
+import { create_date_only } from '../src/create_date_only.js';
+import { sort_dates } from '../src/sort_dates.js';
 
 describe('sort_dates()', () => {
 	test('returns empty array when provided with no dates', () => {
