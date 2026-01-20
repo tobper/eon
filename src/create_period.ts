@@ -1,10 +1,11 @@
-import { add_days } from './add_days.js';
-import { add_interval } from './add_interval.js';
+import { add_days_to_date } from './add_days_to_date.js';
+import { add_months_to_date } from './add_months_to_date.js';
+import { add_years_to_date } from './add_years_to_date.js';
 import { create_date_only } from './create_date_only.js';
 import { create_interval } from './create_interval.js';
 import { get_days_between } from './get_days_between.js';
 import { parse_interval } from './parse_interval.js';
-import type { Interval, Period } from './types.js';
+import type { DateOnly, Interval, Period } from './types.js';
 
 export function create_period(
 	first_day: {
@@ -78,7 +79,7 @@ function create_with_date_and_length(
 ) {
 	const length = typeof length_arg === 'string' ? parse_interval(length_arg) : length_arg;
 	const first_day = create_date_only(date.year, date.month, date.day ?? 1);
-	const last_day = add_days(add_interval(first_day, length), -1);
+	const last_day = add_days_to_date(add_interval(first_day, length), -1);
 
 	return Object.freeze({ first_day, last_day, length });
 }
@@ -93,4 +94,22 @@ function create_with_dates(
 	const length = create_interval(days, 'd');
 
 	return Object.freeze({ first_day, last_day, length });
+}
+
+function add_interval(
+	original_date: DateOnly,
+	interval: Interval | string
+): DateOnly {
+	if (typeof interval === 'string')
+		interval = parse_interval(interval);
+
+	const { amount, unit } = interval;
+
+	switch (unit) {
+		case 'y': return add_years_to_date(original_date, amount);
+		case 'm': return add_months_to_date(original_date, amount);
+		case 'w': return add_days_to_date(original_date, amount * 7);
+		case 'd': return add_days_to_date(original_date, amount);
+		default: throw new Error(`Invalid interval: '${unit}'`);
+	}
 }
