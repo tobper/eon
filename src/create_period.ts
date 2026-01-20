@@ -1,15 +1,10 @@
 import { add_days } from './add_days.js';
 import { add_interval } from './add_interval.js';
-import { create_date_only, type DateOnly } from './create_date_only.js';
-import { create_interval, type Interval } from './create_interval.js';
+import { create_date_only } from './create_date_only.js';
+import { create_interval } from './create_interval.js';
 import { get_days_between } from './get_days_between.js';
 import { parse_interval } from './parse_interval.js';
-
-export interface Period {
-	first_day: DateOnly;
-	last_day: DateOnly;
-	length: Interval;
-}
+import type { Interval, Period } from './types.js';
 
 export function create_period(
 	first_day: {

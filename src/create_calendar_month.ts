@@ -1,8 +1,4 @@
-
-export interface CalendarMonth {
-	year: number;
-	month: number;
-}
+import type { CalendarMonth } from './types.js';
 
 export function create_calendar_month(
 	date: CalendarMonth

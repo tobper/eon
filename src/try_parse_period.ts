@@ -1,6 +1,7 @@
-import { create_period, type Period } from './create_period.js';
+import { create_period } from './create_period.js';
 import { try_parse_date_only } from './try_parse_date_only.js';
 import { try_parse_interval } from './try_parse_interval.js';
+import type { Period } from './types.js';
 
 export function try_parse_period(text: string): Period | null {
 	if (text.length < 13)

@@ -1,15 +1,9 @@
 import { add_days } from './add_days.js';
 import { add_months } from './add_months.js';
-import type { DateOnly } from './create_date_only.js';
-import type { Period } from './create_period.js';
 import { get_days_between } from './get_days_between.js';
 import { get_weekday } from './get_weekday.js';
 import { period_contains_date } from './period_contains_date.js';
-
-export interface CalendarDate extends DateOnly {
-	same_month: boolean;
-	weekend: boolean;
-}
+import type { CalendarDate, Period } from './types.js';
 
 export function get_calendar_dates(period: Period): CalendarDate[] {
 	const { first_day, last_day } = period;

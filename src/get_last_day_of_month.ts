@@ -1,7 +1,7 @@
 import { add_days } from './add_days.js';
 import { add_months } from './add_months.js';
-import type { CalendarMonth } from './create_calendar_month.js';
 import { get_first_day_of_month } from './get_first_day_of_month.js';
+import type { CalendarMonth } from './types.js';
 
 export function get_last_day_of_month(calendar_month: CalendarMonth) {
 	const first_day_of_month = get_first_day_of_month(calendar_month);

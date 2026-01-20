@@ -1,6 +1,6 @@
-import type { Period } from './create_period.js';
 import { is_same_date } from './is_same_date.js';
 import { is_same_interval } from './is_same_interval.js';
+import type { Period } from './types.js';
 
 export function is_same_period(
 	period_1: Period,

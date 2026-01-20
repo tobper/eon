@@ -1,7 +1,5 @@
 import { add_days } from './add_days.js';
-import type { CalendarMonth } from './create_calendar_month.js';
-import type { DateOnly } from './create_date_only.js';
-import type { Period } from './create_period.js';
+import type { CalendarMonth, DateOnly, Period } from './types.js';
 
 export function add_weeks(
 	original_date: DateOnly,

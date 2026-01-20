@@ -1,7 +1,6 @@
-import type { CalendarMonth } from './create_calendar_month.js';
-import type { Period } from './create_period.js';
 import { get_month_text } from './get_month_text.js';
 import { is_same_month } from './is_same_month.js';
+import type { CalendarMonth, Period } from './types.js';
 
 export function get_calendar_month_text(
 	period: Period,

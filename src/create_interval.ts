@@ -1,10 +1,4 @@
-
-export type IntervalUnit = 'y' | 'm' | 'w' | 'd';
-
-export interface Interval {
-	amount: number;
-	unit: IntervalUnit;
-}
+import type { Interval, IntervalUnit } from './types.js';
 
 export const interval_unit = Object.freeze({
 	year: 'y',

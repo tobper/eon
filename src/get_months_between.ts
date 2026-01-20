@@ -1,4 +1,4 @@
-import type { DateOnly } from './create_date_only.js';
+import type { DateOnly } from './types.js';
 
 export function get_months_between(
 	original_date: DateOnly,

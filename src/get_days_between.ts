@@ -1,4 +1,4 @@
-import type { DateOnly } from './create_date_only.js';
+import type { DateOnly } from './types.js';
 
 const ms_in_a_day = 86400e3;
 

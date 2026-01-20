@@ -1,4 +1,4 @@
-import type { DateOnly } from './create_date_only.js';
+import type { DateOnly } from './types.js';
 
 export function get_weekday(date: DateOnly) {
 	const { year, month, day } = date;

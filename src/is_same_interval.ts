@@ -1,4 +1,4 @@
-import type { Interval } from './create_interval.js';
+import type { Interval } from './types.js';
 
 export function is_same_interval(
 	interval_1: Interval,

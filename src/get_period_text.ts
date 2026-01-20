@@ -1,8 +1,7 @@
-import type { DateOnly } from './create_date_only.js';
-import type { Period } from './create_period.js';
 import { get_day_text } from './get_day_text.js';
 import { get_month_text } from './get_month_text.js';
 import { is_same_date } from './is_same_date.js';
+import type { DateOnly, Period } from './types.js';
 
 export function get_period_text(
 	period: Period,

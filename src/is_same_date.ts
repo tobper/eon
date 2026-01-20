@@ -1,4 +1,4 @@
-import type { DateOnly } from './create_date_only.js';
+import type { DateOnly } from './types.js';
 
 export function is_same_date(
 	date_1: DateOnly,

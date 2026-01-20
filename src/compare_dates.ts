@@ -1,4 +1,4 @@
-import type { DateOnly } from './create_date_only.js';
+import type { DateOnly } from './types.js';
 
 export function compare_dates(date_1: DateOnly, date_2: DateOnly) {
 	if (date_1.year < date_2.year)

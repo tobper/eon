@@ -1,5 +1,5 @@
-import type { DateOnly } from './create_date_only.js';
 import { eon } from './eon.js';
+import type { DateOnly } from './types.js';
 
 let locale = eon.locale;
 let plural = get_plural_rules();

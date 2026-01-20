@@ -1,4 +1,4 @@
-import type { CalendarMonth } from './create_calendar_month.js';
+import type { CalendarMonth } from './types.js';
 
 export function get_calendar_month_key(date: CalendarMonth) {
 	const { year, month } = date;

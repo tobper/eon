@@ -1,10 +1,8 @@
-import type { CalendarMonth } from './create_calendar_month.js';
-import type { DateOnly } from './create_date_only.js';
-import type { Period } from './create_period.js';
 import { get_day_text } from './get_day_text.js';
 import { get_month_text } from './get_month_text.js';
 import { is_same_month } from './is_same_month.js';
 import { period_contains_date } from './period_contains_date.js';
+import type { CalendarMonth, DateOnly, Period } from './types.js';
 
 export function get_date_only_text(date: DateOnly, reference?: CalendarMonth | Period) {
 	const { year } = date;

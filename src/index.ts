@@ -59,6 +59,7 @@ export * from './try_parse_interval.js';
 export * from './try_parse_month.js';
 export * from './try_parse_period.js';
 export * from './try_parse_year.js';
+export * from './types.js';
 export * from './validate_month.js';
 export * from './validate_year.js';
 

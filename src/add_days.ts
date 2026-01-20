@@ -1,7 +1,7 @@
-import { create_calendar_month, type CalendarMonth } from './create_calendar_month.js';
-import type { DateOnly } from './create_date_only.js';
+import { create_calendar_month } from './create_calendar_month.js';
 import { create_date_only_from_date } from './create_date_only_from_date.js';
-import { create_period, type Period } from './create_period.js';
+import { create_period } from './create_period.js';
+import type { CalendarMonth, DateOnly, Period } from './types.js';
 
 export function add_days(
 	original_date: DateOnly,

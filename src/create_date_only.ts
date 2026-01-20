@@ -1,10 +1,5 @@
 import { get_date_only_key } from './get_date_only_key.js';
-
-export interface DateOnly {
-	year: number;
-	month: number;
-	day: number;
-}
+import type { DateOnly } from './types.js';
 
 export function create_date_only(
 	date: DateOnly

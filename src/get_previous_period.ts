@@ -1,5 +1,5 @@
 import { add_interval } from './add_interval.js';
-import type { Period } from './create_period.js';
+import type { Period } from './types.js';
 
 export function get_previous_period(period: Period): Period {
 	const { amount, unit } = period.length;

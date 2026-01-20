@@ -1,6 +1,6 @@
-import type { Period } from './create_period.js';
 import { get_date_only_key } from './get_date_only_key.js';
 import { get_interval_key } from './get_interval_key.js';
+import type { Period } from './types.js';
 
 export function get_period_key(
 	period: Period
