@@ -53,6 +53,7 @@ export * from './parse_period.js';
 export * from './parse_year.js';
 export * from './period_contains_date.js';
 export * from './sort_dates.js';
+export * from './time_ago.js';
 export * from './to_date.js';
 export * from './try_parse_date_only.js';
 export * from './try_parse_interval.js';

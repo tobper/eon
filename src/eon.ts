@@ -7,15 +7,25 @@ function create_eon() {
 			['two', 'nd'],
 			['few', 'rd'],
 			['other', 'th'],
+		])],
+		['sv', new Map([
+			['one', 'a'],
+			['two', 'a'],
+			['few', 'e'],
+			['other', 'e'],
 		])]
 	]);
+
+	const month_format_long: Intl.DateTimeFormatOptions = {
+		month: 'long'
+	};
 
 	const month_format_short: Intl.DateTimeFormatOptions = {
 		month: 'short'
 	};
 
-	const month_format_long: Intl.DateTimeFormatOptions = {
-		month: 'long'
+	const weekday_format_long: Intl.DateTimeFormatOptions = {
+		weekday: 'long'
 	};
 
 	const weekday_format_short: Intl.DateTimeFormatOptions = {
@@ -30,6 +40,7 @@ function create_eon() {
 		get day_suffixes() { return values.day_suffixes; },
 		get months_long() { return values.months_long; },
 		get months_short() { return values.months_short; },
+		get week_days_long() { return values.week_days_long; },
 		get week_days_short() { return values.week_days_short; },
 	};
 
@@ -47,6 +58,12 @@ function create_eon() {
 				Array.from(
 					{ length: 12 },
 					(_, index) => new Date(1970, index, 1).toLocaleString(locale, month_format_short)
+				)
+			),
+			week_days_long: Object.freeze(
+				Array.from(
+					{ length: 7 },
+					(_, index) => new Date(1970, 0, 5 + index).toLocaleString(locale, weekday_format_long)
 				)
 			),
 			week_days_short: Object.freeze(
