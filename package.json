@@ -1,6 +1,6 @@
 {
 	"name": "@tobper/eon",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Date library",
 	"repository": "github:tobper/eon",
 	"license": "ISC",
@@ -11,14 +11,18 @@
 	],
 	"author": "Tobias Persson",
 	"type": "module",
-	"main": "lib/index.js",
-	"types": "lib/types/index.d.ts",
 	"files": [
 		"lib",
 		"src",
 		"!**/*.tsbuildinfo"
 	],
-	"packageManager": "pnpm@9.7.0",
+	"packageManager": "pnpm@11.5.2",
+	"exports": {
+		".": {
+			"import": "./lib/index.js",
+			"types": "./lib/types/index.d.ts"
+		}
+	},
 	"publishConfig": {
 		"@tobper:registry": "https://npm.pkg.github.com"
 	},
@@ -32,13 +36,13 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.9.0",
-		"@types/eslint": "^9.6.0",
-		"@types/eslint__js": "^8.42.3",
-		"cspell": "^8.13.3",
-		"eslint": "^9.8.0",
-		"typescript": "^5.5.4",
-		"typescript-eslint": "^8.1.0",
-		"vitest": "^2.0.5"
+		"@eslint/js": "^10.0.1",
+		"@types/eslint": "^9.6.1",
+		"cspell": "^10.0.0",
+		"eslint": "^10.4.0",
+		"typescript": "^6.0.3",
+		"typescript-eslint": "^8.60.0",
+		"vite": "^8.0.14",
+		"vitest": "^4.1.7"
 	}
 }

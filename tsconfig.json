@@ -14,6 +14,7 @@
 		"verbatimModuleSyntax": true,
 
 		/* Emit */
+		"rootDir": "./src",
 		"outDir": "./lib",
 		"sourceMap": true,
 		"declaration": true,
