@@ -4,6 +4,7 @@ import { compare_dates } from './compare_dates.js';
 import { create_date_only_from_date } from './create_date_only_from_date.js';
 import { eon } from './eon.js';
 import { get_day_text } from './get_day_text.js';
+import { get_days_between } from './get_days_between.js';
 import { get_month_text } from './get_month_text.js';
 import { get_weekday } from './get_weekday.js';
 import { is_same_date } from './is_same_date.js';
@@ -63,12 +64,14 @@ export function time_ago(date: Date | string, reference?: Date | string) {
 	}
 
 	if (compare_dates(add_days(r, -6), d) < 1) {
-		const day_part = get_day_part(date);
-		const week_day = eon.week_days_long[get_weekday(d) - 1];
+		const days = get_days_between(r, d);
+		return `${days} days ago`;
+		// const day_part = get_day_part(date);
+		// const week_day = eon.week_days_long[get_weekday(d) - 1];
 
-		return day_part
-			? `${week_day} ${day_part}`
-			: week_day;
+		// return day_part
+		// 	? `${week_day} ${day_part}`
+		// 	: week_day;
 	}
 
 	const day_text = get_day_text(d.day);
